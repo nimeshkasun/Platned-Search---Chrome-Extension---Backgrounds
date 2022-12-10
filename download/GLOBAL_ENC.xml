@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portal_profile>
+<MinimizedPortlets>*,20,,14,,15,,13,</MinimizedPortlets>
+<NextId>23</NextId>
+<RefreshTime>15</RefreshTime>
+<WideColumnExists>1</WideColumnExists>
+<Column_0>
+<Definition>
+<Width>288</Width>
+<Appearance>S</Appearance>
+</Definition>
+<Portlet>
+<Id>7</Id>
+<ClassName>ifs.fnd.portlets.SelectStatement</ClassName>
+<Position>0</Position>
+<ProfileBuffer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:ifsrecord="urn:ifsworld-com:ifsrecord"
+   xmlns="urn:ifsworld-com:schemas:profile_buffer">
+ <SQLSTMT ifsrecord:datatype="Text">SELECT DECODE(item_type, &apos;Case&apos;, &apos;&lt;a href=&quot;castrw/CaseDetail.page?CASE_LOCAL_ID=&apos; || id || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;, &apos;Task&apos;, &apos;&lt;a href=&quot;castrw/TaskDetail.page?CASE_ID=&apos; || key_id || &apos;&amp;TASK_ID=&apos; || key_id2 || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;) AS &quot;CASE ID/ TASK ID&quot;,
+       title,
+       queue,
+       severity_weight AS severity,
+       track,
+       focus_name AS focus
+FROM   rndprod.case_work_items
+WHERE  RNDPROD.CASE_PRODUCT_API.Get_Name(product_id_db) IN (&apos;Mobile Work Order&apos;, &apos;PSO&apos;) AND (item_type IN (&apos;Case&apos;, &apos;Task&apos;) AND state = &apos;Queued&apos; AND queue IN (&apos;GSO Default&apos;, &apos;EnC Handovers&apos;) AND acc_queue_org_id IN (&apos;LK Sppt&apos;, &apos;UK Sppt&apos;, &apos;AU Sppt&apos;, &apos;SG Sppt&apos;, &apos;MY Sppt&apos;, &apos;NA Sppt&apos;, &apos;ME Sppt&apos;, &apos;SL Sppt Center&apos;, &apos;NL Sppt&apos;, &apos;TH Sppt&apos;, &apos;ZA Sppt&apos;, &apos;JP Sppt&apos;, &apos;CN Sppt&apos;, &apos;FI Sppt&apos;, &apos;ES Sppt&apos;, &apos;DE Sppt&apos;, &apos;SCAN DK Sppt&apos;, &apos;SCAN NO Sppt&apos;, &apos;SCAN SE Sppt&apos;, &apos;PL Sppt&apos;, &apos;FR Sppt&apos;, &apos;GSD Handovers&apos;))
+ORDER  BY severity_weight ASC,
+          customer_weight ASC NULLS LAST,
+          priority_weight ASC,
+          created         ASC
+</SQLSTMT>
+ <SQLSTMTMAX ifsrecord:datatype="Text">100</SQLSTMTMAX>
+ <SQLSTMTSKIP ifsrecord:datatype="Text">0</SQLSTMTSKIP>
+ <SQLSTMTMAXTITLE ifsrecord:datatype="Text">MaSS (MWO, PSO)</SQLSTMTMAXTITLE>
+ <SQLSTMTMINTITLE ifsrecord:datatype="Text">MaSS</SQLSTMTMINTITLE>
+ <HTML_FORMAT ifsrecord:datatype="Boolean">1</HTML_FORMAT>
+</ProfileBuffer>
+</Portlet>
+<Portlet>
+<Id>12</Id>
+<ClassName>ifs.fnd.portlets.SelectStatement</ClassName>
+<Position>1</Position>
+<ProfileBuffer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:ifsrecord="urn:ifsworld-com:ifsrecord"
+   xmlns="urn:ifsworld-com:schemas:profile_buffer">
+ <SQLSTMT ifsrecord:datatype="Text">SELECT DECODE(item_type, &apos;Case&apos;, &apos;&lt;a href=&quot;castrw/CaseDetail.page?CASE_LOCAL_ID=&apos; || id || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;, &apos;Task&apos;, &apos;&lt;a href=&quot;castrw/TaskDetail.page?CASE_ID=&apos; || key_id || &apos;&amp;TASK_ID=&apos; || key_id2 || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;) AS &quot;CASE ID/ TASK ID&quot;,
+       title,
+       queue,
+       severity_weight AS severity,
+       track,
+       focus_name AS focus
+FROM   rndprod.case_work_items
+WHERE  RNDPROD.CASE_PRODUCT_API.Get_Name(product_id_db) IN (&apos;Manufacturing&apos;, &apos;Engineering, Product Design&apos;) AND (item_type IN (&apos;Case&apos;, &apos;Task&apos;) AND state = &apos;Queued&apos; AND queue IN (&apos;GSO Default&apos;, &apos;EnC Handovers&apos;) AND acc_queue_org_id IN (&apos;LK Sppt&apos;, &apos;UK Sppt&apos;, &apos;AU Sppt&apos;, &apos;SG Sppt&apos;, &apos;MY Sppt&apos;, &apos;NA Sppt&apos;, &apos;ME Sppt&apos;, &apos;SL Sppt Center&apos;, &apos;NL Sppt&apos;, &apos;TH Sppt&apos;, &apos;ZA Sppt&apos;, &apos;JP Sppt&apos;, &apos;CN Sppt&apos;, &apos;FI Sppt&apos;, &apos;ES Sppt&apos;, &apos;DE Sppt&apos;, &apos;SCAN DK Sppt&apos;, &apos;SCAN NO Sppt&apos;, &apos;SCAN SE Sppt&apos;, &apos;PL Sppt&apos;, &apos;FR Sppt&apos;, &apos;GSD Handovers&apos;))
+ORDER  BY severity_weight ASC,
+          customer_weight ASC NULLS LAST,
+          priority_weight ASC,
+          created         ASC
+</SQLSTMT>
+ <SQLSTMTMAX ifsrecord:datatype="Text">100</SQLSTMTMAX>
+ <SQLSTMTSKIP ifsrecord:datatype="Text">0</SQLSTMTSKIP>
+ <SQLSTMTMAXTITLE ifsrecord:datatype="Text">Manufacturing, Engineering &amp; Product Design</SQLSTMTMAXTITLE>
+ <SQLSTMTMINTITLE ifsrecord:datatype="Text">MEP</SQLSTMTMINTITLE>
+ <HTML_FORMAT ifsrecord:datatype="Boolean">1</HTML_FORMAT>
+</ProfileBuffer>
+</Portlet>
+</Column_0>
+<Column_1>
+<Definition>
+<Width>288</Width>
+<Appearance>S</Appearance>
+</Definition>
+<Portlet>
+<Id>8</Id>
+<ClassName>ifs.fnd.portlets.SelectStatement</ClassName>
+<Position>0</Position>
+<ProfileBuffer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:ifsrecord="urn:ifsworld-com:ifsrecord"
+   xmlns="urn:ifsworld-com:schemas:profile_buffer">
+ <SQLSTMT ifsrecord:datatype="Text">SELECT DECODE(item_type, &apos;Case&apos;, &apos;&lt;a href=&quot;castrw/CaseDetail.page?CASE_LOCAL_ID=&apos; || id || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;, &apos;Task&apos;, &apos;&lt;a href=&quot;castrw/TaskDetail.page?CASE_ID=&apos; || key_id || &apos;&amp;TASK_ID=&apos; || key_id2 || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;) AS &quot;CASE ID/ TASK ID&quot;,
+       title,
+       queue,
+       severity_weight AS severity,
+       track,
+       focus_name AS focus
+FROM   rndprod.case_work_items
+WHERE  RNDPROD.CASE_PRODUCT_API.Get_Name(product_id_db) IN (&apos;Field Service Management (FSM)&apos;) AND (item_type IN (&apos;Case&apos;, &apos;Task&apos;) AND state = &apos;Queued&apos; AND queue IN (&apos;GSO Default&apos;, &apos;EnC Handovers&apos;) AND acc_queue_org_id IN (&apos;LK Sppt&apos;, &apos;UK Sppt&apos;, &apos;AU Sppt&apos;, &apos;SG Sppt&apos;, &apos;MY Sppt&apos;, &apos;NA Sppt&apos;, &apos;ME Sppt&apos;, &apos;SL Sppt Center&apos;, &apos;NL Sppt&apos;, &apos;TH Sppt&apos;, &apos;ZA Sppt&apos;, &apos;JP Sppt&apos;, &apos;CN Sppt&apos;, &apos;FI Sppt&apos;, &apos;ES Sppt&apos;, &apos;DE Sppt&apos;, &apos;SCAN DK Sppt&apos;, &apos;SCAN NO Sppt&apos;, &apos;SCAN SE Sppt&apos;, &apos;PL Sppt&apos;, &apos;FR Sppt&apos;, &apos;GSD Handovers&apos;))
+ORDER  BY severity_weight ASC,
+          customer_weight ASC NULLS LAST,
+          priority_weight ASC,
+          created         ASC
+</SQLSTMT>
+ <SQLSTMTMAX ifsrecord:datatype="Text">100</SQLSTMTMAX>
+ <SQLSTMTSKIP ifsrecord:datatype="Text">0</SQLSTMTSKIP>
+ <SQLSTMTMAXTITLE ifsrecord:datatype="Text">Field Service Management (FSM)</SQLSTMTMAXTITLE>
+ <SQLSTMTMINTITLE ifsrecord:datatype="Text">FSM</SQLSTMTMINTITLE>
+ <HTML_FORMAT ifsrecord:datatype="Boolean">1</HTML_FORMAT>
+</ProfileBuffer>
+</Portlet>
+<Portlet>
+<Id>13</Id>
+<ClassName>ifs.fnd.portlets.SelectStatement</ClassName>
+<Position>1</Position>
+<ProfileBuffer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:ifsrecord="urn:ifsworld-com:ifsrecord"
+   xmlns="urn:ifsworld-com:schemas:profile_buffer">
+ <SQLSTMT ifsrecord:datatype="Text">SELECT DECODE(item_type, &apos;Case&apos;, &apos;&lt;a href=&quot;castrw/CaseDetail.page?CASE_LOCAL_ID=&apos; || id || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;, &apos;Task&apos;, &apos;&lt;a href=&quot;castrw/TaskDetail.page?CASE_ID=&apos; || key_id || &apos;&amp;TASK_ID=&apos; || key_id2 || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;) AS &quot;CASE ID/ TASK ID&quot;,
+       title,
+       queue,
+       severity_weight AS severity,
+       track,
+       focus_name AS focus
+FROM   rndprod.case_work_items
+WHERE  RNDPROD.CASE_PRODUCT_API.Get_Name(product_id_db) IN (&apos;Foundation1 Technology&apos;) AND (item_type IN (&apos;Case&apos;, &apos;Task&apos;) AND state = &apos;Queued&apos; AND queue IN (&apos;GSO Default&apos;, &apos;EnC Handovers&apos;) AND acc_queue_org_id IN (&apos;LK Sppt&apos;, &apos;UK Sppt&apos;, &apos;AU Sppt&apos;, &apos;SG Sppt&apos;, &apos;MY Sppt&apos;, &apos;NA Sppt&apos;, &apos;ME Sppt&apos;, &apos;SL Sppt Center&apos;, &apos;NL Sppt&apos;, &apos;TH Sppt&apos;, &apos;ZA Sppt&apos;, &apos;JP Sppt&apos;, &apos;CN Sppt&apos;, &apos;FI Sppt&apos;, &apos;ES Sppt&apos;, &apos;DE Sppt&apos;, &apos;SCAN DK Sppt&apos;, &apos;SCAN NO Sppt&apos;, &apos;SCAN SE Sppt&apos;, &apos;PL Sppt&apos;, &apos;FR Sppt&apos;, &apos;GSD Handovers&apos;))
+ORDER  BY severity_weight ASC,
+          customer_weight ASC NULLS LAST,
+          priority_weight ASC,
+          created         ASC
+</SQLSTMT>
+ <SQLSTMTMAX ifsrecord:datatype="Text">100</SQLSTMTMAX>
+ <SQLSTMTSKIP ifsrecord:datatype="Text">0</SQLSTMTSKIP>
+ <SQLSTMTMAXTITLE ifsrecord:datatype="Text">Foundation1 Technology</SQLSTMTMAXTITLE>
+ <SQLSTMTMINTITLE ifsrecord:datatype="Text">Technology</SQLSTMTMINTITLE>
+ <HTML_FORMAT ifsrecord:datatype="Boolean">1</HTML_FORMAT>
+</ProfileBuffer>
+</Portlet>
+</Column_1>
+<Column_2>
+<Definition>
+<Width>500</Width>
+<Appearance>S</Appearance>
+</Definition>
+<Portlet>
+<Id>16</Id>
+<ClassName>ifs.fnd.portlets.MyLinks</ClassName>
+<Position>0</Position>
+<ProfileBuffer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:ifsrecord="urn:ifsworld-com:ifsrecord"
+   xmlns="urn:ifsworld-com:schemas:profile_buffer">
+ <MINTITLE ifsrecord:datatype="Text">Quick Links</MINTITLE>
+ <NAVTITLE ifsrecord:datatype="Text">Quick Links</NAVTITLE>
+ <MYLINKS ifsrecord:datatype="Boolean">1</MYLINKS>
+ <NAVLINKS ifsrecord:datatype="Boolean">1</NAVLINKS>
+ <MYLINKSBUF ifsrecord:datatype="Aggregate">
+  <ProfileBuffer>
+   <LINK_0 ifsrecord:datatype="Aggregate">
+    <ProfileBuffer>
+     <VALUE ifsrecord:datatype="Text">NULL~https://chrome.google.com/webstore/detail/corporate-search/bladdcabojnnfnkdgcchokolbmjeogda</VALUE>
+     <DESC ifsrecord:datatype="Text">Corporate Search (Browser Extension)</DESC>
+    </ProfileBuffer>
+   </LINK_0>
+  </ProfileBuffer>
+ </MYLINKSBUF>
+</ProfileBuffer>
+</Portlet>
+<Portlet>
+<Id>11</Id>
+<ClassName>ifs.fnd.portlets.SelectStatement</ClassName>
+<Position>1</Position>
+<ProfileBuffer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:ifsrecord="urn:ifsworld-com:ifsrecord"
+   xmlns="urn:ifsworld-com:schemas:profile_buffer">
+ <SQLSTMT ifsrecord:datatype="Text">SELECT DECODE(item_type, &apos;Case&apos;, &apos;&lt;a href=&quot;castrw/CaseDetail.page?CASE_LOCAL_ID=&apos; || id || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;, &apos;Task&apos;, &apos;&lt;a href=&quot;castrw/TaskDetail.page?CASE_ID=&apos; || key_id || &apos;&amp;TASK_ID=&apos; || key_id2 || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;) AS &quot;CASE ID/ TASK ID&quot;,
+       title,
+       queue,
+       severity_weight AS severity,
+       track,
+       RNDPROD.CASE_PRODUCT_API.Get_Name(product_id_db) AS product,
+       state,
+       focus_name AS focus,
+       RNDPROD.INSTALLATION_SUPPORT_API.Get_Support_Level_Id(customer_id, key_id) AS &quot;Support Level&quot;,
+       RNDPROD.Case_Utility_API.Case_Task_Escalate_Status(customer_id, state, item_type) AS escalated,
+       RNDPROD.Case_API.Get_System_Failure(key_id) AS system_down
+FROM   rndprod.case_work_items
+WHERE  (UPPER(acc_queue_org_id) = UPPER(&apos;GSD Handovers&apos;) AND UPPER(queue) = UPPER(&apos;EnC Handovers&apos;) AND UPPER(state) = UPPER(&apos;Queued&apos;))
+ORDER  BY severity_weight ASC,
+          customer_weight ASC NULLS LAST,
+          priority_weight ASC,
+          created         ASC</SQLSTMT>
+ <SQLSTMTMAX ifsrecord:datatype="Text">100</SQLSTMTMAX>
+ <SQLSTMTSKIP ifsrecord:datatype="Text">0</SQLSTMTSKIP>
+ <SQLSTMTMAXTITLE ifsrecord:datatype="Text">EnC Handovers</SQLSTMTMAXTITLE>
+ <SQLSTMTMINTITLE ifsrecord:datatype="Text">EnC Handovers</SQLSTMTMINTITLE>
+ <HTML_FORMAT ifsrecord:datatype="Boolean">1</HTML_FORMAT>
+</ProfileBuffer>
+</Portlet>
+<Portlet>
+<Id>6</Id>
+<ClassName>ifs.fnd.portlets.SelectStatement</ClassName>
+<Position>2</Position>
+<ProfileBuffer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:ifsrecord="urn:ifsworld-com:ifsrecord"
+   xmlns="urn:ifsworld-com:schemas:profile_buffer">
+ <SQLSTMT ifsrecord:datatype="Text">SELECT DECODE(item_type, &apos;Case&apos;, &apos;&lt;a href=&quot;castrw/CaseDetail.page?CASE_LOCAL_ID=&apos; || id || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;, &apos;Task&apos;, &apos;&lt;a href=&quot;castrw/TaskDetail.page?CASE_ID=&apos; || key_id || &apos;&amp;TASK_ID=&apos; || key_id2 || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;) AS &quot;CASE ID/ TASK ID&quot;,
+       title,
+       queue,
+       severity_weight AS severity,
+       track,
+       RNDPROD.CASE_PRODUCT_API.Get_Name(product_id_db) AS product,
+       state,
+       focus_name AS focus,
+       RNDPROD.INSTALLATION_SUPPORT_API.Get_Support_Level_Id(customer_id, key_id) AS &quot;Support Level&quot;,
+       RNDPROD.Case_Utility_API.Case_Task_Escalate_Status(customer_id, state, item_type) AS escalated,
+       RNDPROD.Case_API.Get_System_Failure(key_id) AS system_down
+FROM   rndprod.case_work_items
+WHERE  (item_type IN (&apos;Case&apos;, &apos;Task&apos;) AND state = &apos;Queued&apos; AND queue IN (&apos;GSO Default&apos;) AND acc_queue_org_id IN (&apos;LK Sppt&apos;, &apos;UK Sppt&apos;, &apos;AU Sppt&apos;, &apos;SG Sppt&apos;, &apos;MY Sppt&apos;, &apos;NA Sppt&apos;, &apos;ME Sppt&apos;, &apos;SL Sppt Center&apos;, &apos;NL Sppt&apos;, &apos;TH Sppt&apos;, &apos;ZA Sppt&apos;, &apos;JP Sppt&apos;, &apos;CN Sppt&apos;, &apos;FI Sppt&apos;, &apos;ES Sppt&apos;, &apos;DE Sppt&apos;, &apos;SCAN DK Sppt&apos;, &apos;SCAN NO Sppt&apos;, &apos;SCAN SE Sppt&apos;, &apos;PL Sppt&apos;, &apos;FR Sppt&apos;, &apos;GSD Handovers&apos;))
+ORDER  BY severity_weight ASC,
+          customer_weight ASC NULLS LAST,
+          priority_weight ASC,
+          created         ASC
+</SQLSTMT>
+ <SQLSTMTMAX ifsrecord:datatype="Text">100</SQLSTMTMAX>
+ <SQLSTMTSKIP ifsrecord:datatype="Text">0</SQLSTMTSKIP>
+ <SQLSTMTMAXTITLE ifsrecord:datatype="Text">EnC Global Queue</SQLSTMTMAXTITLE>
+ <SQLSTMTMINTITLE ifsrecord:datatype="Text">EnC Global Queue</SQLSTMTMINTITLE>
+ <HTML_FORMAT ifsrecord:datatype="Boolean">1</HTML_FORMAT>
+</ProfileBuffer>
+</Portlet>
+</Column_2>
+<Column_3>
+<Definition>
+<Width>288</Width>
+<Appearance>S</Appearance>
+</Definition>
+<Portlet>
+<Id>9</Id>
+<ClassName>ifs.fnd.portlets.SelectStatement</ClassName>
+<Position>0</Position>
+<ProfileBuffer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:ifsrecord="urn:ifsworld-com:ifsrecord"
+   xmlns="urn:ifsworld-com:schemas:profile_buffer">
+ <SQLSTMT ifsrecord:datatype="Text">SELECT DECODE(item_type, &apos;Case&apos;, &apos;&lt;a href=&quot;castrw/CaseDetail.page?CASE_LOCAL_ID=&apos; || id || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;, &apos;Task&apos;, &apos;&lt;a href=&quot;castrw/TaskDetail.page?CASE_ID=&apos; || key_id || &apos;&amp;TASK_ID=&apos; || key_id2 || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;) AS &quot;CASE ID/ TASK ID&quot;,
+       title,
+       queue,
+       severity_weight AS severity,
+       track,
+       focus_name AS focus
+FROM   rndprod.case_work_items
+WHERE  RNDPROD.CASE_PRODUCT_API.Get_Name(product_id_db) IN (&apos;Distribution&apos;) AND (item_type IN (&apos;Case&apos;, &apos;Task&apos;) AND state = &apos;Queued&apos; AND queue IN (&apos;GSO Default&apos;, &apos;EnC Handovers&apos;) AND acc_queue_org_id IN (&apos;LK Sppt&apos;, &apos;UK Sppt&apos;, &apos;AU Sppt&apos;, &apos;SG Sppt&apos;, &apos;MY Sppt&apos;, &apos;NA Sppt&apos;, &apos;ME Sppt&apos;, &apos;SL Sppt Center&apos;, &apos;NL Sppt&apos;, &apos;TH Sppt&apos;, &apos;ZA Sppt&apos;, &apos;JP Sppt&apos;, &apos;CN Sppt&apos;, &apos;FI Sppt&apos;, &apos;ES Sppt&apos;, &apos;DE Sppt&apos;, &apos;SCAN DK Sppt&apos;, &apos;SCAN NO Sppt&apos;, &apos;SCAN SE Sppt&apos;, &apos;PL Sppt&apos;, &apos;FR Sppt&apos;, &apos;GSD Handovers&apos;))
+ORDER  BY severity_weight ASC,
+          customer_weight ASC NULLS LAST,
+          priority_weight ASC,
+          created         ASC
+</SQLSTMT>
+ <SQLSTMTMAX ifsrecord:datatype="Text">100</SQLSTMTMAX>
+ <SQLSTMTSKIP ifsrecord:datatype="Text">0</SQLSTMTSKIP>
+ <SQLSTMTMAXTITLE ifsrecord:datatype="Text">Distribution</SQLSTMTMAXTITLE>
+ <SQLSTMTMINTITLE ifsrecord:datatype="Text">Distribution</SQLSTMTMINTITLE>
+ <HTML_FORMAT ifsrecord:datatype="Boolean">1</HTML_FORMAT>
+</ProfileBuffer>
+</Portlet>
+<Portlet>
+<Id>14</Id>
+<ClassName>ifs.fnd.portlets.SelectStatement</ClassName>
+<Position>1</Position>
+<ProfileBuffer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:ifsrecord="urn:ifsworld-com:ifsrecord"
+   xmlns="urn:ifsworld-com:schemas:profile_buffer">
+ <SQLSTMTMAX ifsrecord:datatype="Text">100</SQLSTMTMAX>
+ <SQLSTMTSKIP ifsrecord:datatype="Text">0</SQLSTMTSKIP>
+ <SQLSTMTMAXTITLE ifsrecord:datatype="Text">Temp</SQLSTMTMAXTITLE>
+ <SQLSTMTMINTITLE ifsrecord:datatype="Text">Temp</SQLSTMTMINTITLE>
+ <HTML_FORMAT ifsrecord:datatype="Boolean">0</HTML_FORMAT>
+</ProfileBuffer>
+</Portlet>
+</Column_3>
+</portal_profile>
