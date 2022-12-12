@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <portal_profile>
-<MinimizedPortlets>*,20,,14,,15,</MinimizedPortlets>
-<NextId>33</NextId>
+<MinimizedPortlets>*,20,,15,</MinimizedPortlets>
+<NextId>34</NextId>
 <RefreshTime>0</RefreshTime>
 <WideColumnExists>1</WideColumnExists>
 <Column_0>
@@ -147,6 +147,33 @@ ORDER  BY severity_weight ASC,
  <SQLSTMTSKIP ifsrecord:datatype="Text">0</SQLSTMTSKIP>
  <SQLSTMTMAXTITLE ifsrecord:datatype="Text">Foundation1 and Technology</SQLSTMTMAXTITLE>
  <SQLSTMTMINTITLE ifsrecord:datatype="Text">Technology</SQLSTMTMINTITLE>
+ <HTML_FORMAT ifsrecord:datatype="Boolean">1</HTML_FORMAT>
+</ProfileBuffer>
+</Portlet>
+<Portlet>
+<Id>33</Id>
+<ClassName>ifs.fnd.portlets.SelectStatement</ClassName>
+<Position>2</Position>
+<ProfileBuffer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:ifsrecord="urn:ifsworld-com:ifsrecord"
+   xmlns="urn:ifsworld-com:schemas:profile_buffer">
+ <SQLSTMT ifsrecord:datatype="Text">SELECT DECODE(item_type, &apos;Case&apos;, &apos;&lt;a href=&quot;castrw/CaseDetail.page?CASE_LOCAL_ID=&apos; || id || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;, &apos;Task&apos;, &apos;&lt;a href=&quot;castrw/TaskDetail.page?CASE_ID=&apos; || key_id || &apos;&amp;TASK_ID=&apos; || key_id2 || &apos;&quot; target=&quot;_blank&quot;&gt;&apos; || id || &apos;&lt;/a&gt;&apos;) AS &quot;CASE ID/ TASK ID&quot;,
+       title,
+       queue,
+       severity_weight AS severity,
+       track,
+       focus_name AS focus
+FROM   rndprod.case_work_items
+WHERE  RNDPROD.CASE_PRODUCT_API.Get_Name(product_id_db) IN (&apos;IFS Global Extension&apos;) AND (item_type IN (&apos;Case&apos;, &apos;Task&apos;) AND state = &apos;Queued&apos; AND queue IN (&apos;GSO Default&apos;, &apos;EnC Handovers&apos;) AND acc_queue_org_id IN (&apos;LK Sppt&apos;, &apos;UK Sppt&apos;, &apos;AU Sppt&apos;, &apos;SG Sppt&apos;, &apos;MY Sppt&apos;, &apos;NA Sppt&apos;, &apos;ME Sppt&apos;, &apos;SL Sppt Center&apos;, &apos;NL Sppt&apos;, &apos;TH Sppt&apos;, &apos;ZA Sppt&apos;, &apos;JP Sppt&apos;, &apos;CN Sppt&apos;, &apos;FI Sppt&apos;, &apos;ES Sppt&apos;, &apos;DE Sppt&apos;, &apos;SCAN DK Sppt&apos;, &apos;SCAN NO Sppt&apos;, &apos;SCAN SE Sppt&apos;, &apos;PL Sppt&apos;, &apos;FR Sppt&apos;, &apos;GSD Handovers&apos;))
+ORDER  BY severity_weight ASC,
+          customer_weight ASC NULLS LAST,
+          priority_weight ASC,
+          created         ASC
+</SQLSTMT>
+ <SQLSTMTMAX ifsrecord:datatype="Text">100</SQLSTMTMAX>
+ <SQLSTMTSKIP ifsrecord:datatype="Text">0</SQLSTMTSKIP>
+ <SQLSTMTMAXTITLE ifsrecord:datatype="Text">IFS Global Extension</SQLSTMTMAXTITLE>
+ <SQLSTMTMINTITLE ifsrecord:datatype="Text">IFS Global Extension</SQLSTMTMINTITLE>
  <HTML_FORMAT ifsrecord:datatype="Boolean">1</HTML_FORMAT>
 </ProfileBuffer>
 </Portlet>
